@@ -1,11 +1,14 @@
 const http = require('http');
 const express = require('express');
 const app = express();
+const path = require('path')
 const admin = require('./routes/admin');
 const shop = require('./routes/shop')
 const body = require('body-parser');
 const server = http.createServer(app);
 app.use(body.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 
